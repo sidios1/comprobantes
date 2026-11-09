@@ -114,9 +114,9 @@ async function verificar() {
   mostrar('Comprobante auténtico', 'valido', [
     ['Estos datos fueron firmados por la tesorería del coro. Compáralos con los del comprobante que tienes: si alguno no coincide, el documento fue modificado.', 'nota'],
   ], [
-    ['Folio', String(folio).padStart(6, '0')],
-    ['Recibido de', nombre],
-    ['Concepto', concepto],
+    ['N° de comprobante', String(folio).padStart(6, '0')],
+    ['Nombre', nombre],
+    ['Detalle', concepto],
     ['Total pagado', monto],
     ['Emitido el', fechaLarga(fecha)],
     ...(tesorero ? [['Firmado por', `${tesorero}, tesorero`]] : []),
