@@ -55,7 +55,7 @@ async function verificar() {
     return;
   }
   if (config.nombreCoro) {
-    document.querySelector('#organizacion').firstChild.textContent = config.nombreCoro;
+    document.querySelector('#organizacion').textContent = config.nombreCoro;
   }
 
   const codigo = decodeURIComponent(location.hash.slice(1));
@@ -101,6 +101,7 @@ async function verificar() {
   if (!valido) {
     mostrar('Comprobante no válido', 'invalido', [
       ['La firma no corresponde a los datos. El código fue alterado o el comprobante no fue emitido por la tesorería del coro.'],
+      ['Si recibiste este comprobante como respaldo de un pago, consulta directamente con la tesorería.'],
     ]);
     return;
   }

@@ -9,6 +9,8 @@
   <meta name="referrer" content="no-referrer">
   <title>Verificar comprobante</title>
   <style>
+    /* Sistema: fuente del sistema; tamaños 14 / 16 / 22 px; pesos 400 y 600.
+       Color: neutros + un acento (el azul del logo); verde y rojo solo para el resultado. */
     :root {
       --fondo: #ffffff;
       --texto: #1c1f3a;
@@ -21,13 +23,13 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --fondo: #15161d;
-        --texto: #e9eaf2;
-        --secundario: #b2b5c9;
-        --linea: #34364a;
-        --acento: #9aa6ff;
-        --valido: #6fd3a0;
-        --invalido: #ff8f86;
+        --fondo: #1e1f24;
+        --texto: #ececf1;
+        --secundario: #b4b6c4;
+        --linea: #3a3c46;
+        --acento: #a9b3f5;
+        --valido: #8fcfa9;
+        --invalido: #f29b93;
       }
     }
     * { box-sizing: border-box; }
@@ -36,30 +38,32 @@
       font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-variant-numeric: tabular-nums;
     }
-    main { max-width: 34rem; margin: 0 auto; padding: 24px 16px 40px; }
-    header { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 2px solid var(--acento); }
-    header img { width: 52px; height: 52px; border-radius: 50%; background: #fff; }
-    header p { margin: 0; font-weight: 600; }
-    header span { display: block; font-weight: 400; color: var(--secundario); font-size: 14px; }
-    h1 { font-size: 24px; font-weight: 600; margin: 24px 0 8px; line-height: 1.25; }
+    main { max-width: 34rem; margin: 0 auto; padding: 20px 16px 32px; }
+    header { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--linea); }
+    header img { width: 48px; height: 48px; border-radius: 50%; background: #fff; }
+    header p { margin: 0; font-weight: 600; color: var(--acento); }
+    h1 { font-size: 22px; font-weight: 600; margin: 24px 0 8px; line-height: 1.3; }
     h1.valido { color: var(--valido); }
     h1.invalido { color: var(--invalido); }
     p { margin: 0 0 12px; }
-    dl { display: grid; grid-template-columns: max-content 1fr; gap: 10px 16px; margin: 20px 0; padding: 16px 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+    dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; margin: 16px 0 20px; }
     dt { color: var(--secundario); }
     dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
-    .nota { color: var(--secundario); font-size: 14px; }
+    .nota, footer { font-size: 14px; color: var(--secundario); }
+    footer { margin-top: 32px; }
   </style>
 </head>
 <body>
   <main>
     <header>
-      <img src="logo.jpg" alt="">
-      <p id="organizacion">Tesorería del coro<span>Verificación de comprobantes de pago</span></p>
+      <img src="logo.jpg" alt="Logo del coro">
+      <p id="organizacion">Tesorería del coro</p>
     </header>
     <section id="resultado" aria-live="polite">
-      <p>Verificando…</p>
+      <noscript><h1>Activa JavaScript</h1><p>La verificación se hace en tu navegador y necesita JavaScript.</p></noscript>
+      <p class="cargando">Verificando…</p>
     </section>
+    <footer>La verificación se hace en tu celular con la firma digital de la tesorería. Los datos del comprobante no se envían a ningún servidor.</footer>
   </main>
   <script type="module" src="verificar.js"></script>
 </body>
