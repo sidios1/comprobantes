@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <!-- Solo se permite cargar archivos de este mismo sitio: ningún script externo puede leer los datos. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Verificar comprobante</title>
+  <style>
+    :root {
+      --fondo: #ffffff;
+      --texto: #1c1f3a;
+      --secundario: #4a4e68;
+      --linea: #d5d7e2;
+      --acento: #1f2a8c;
+      --valido: #1d6b3f;
+      --invalido: #b3261e;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fondo: #15161d;
+        --texto: #e9eaf2;
+        --secundario: #b2b5c9;
+        --linea: #34364a;
+        --acento: #9aa6ff;
+        --valido: #6fd3a0;
+        --invalido: #ff8f86;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--fondo); color: var(--texto);
+      font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-variant-numeric: tabular-nums;
+    }
+    main { max-width: 34rem; margin: 0 auto; padding: 24px 16px 40px; }
+    header { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 2px solid var(--acento); }
+    header img { width: 52px; height: 52px; border-radius: 50%; background: #fff; }
+    header p { margin: 0; font-weight: 600; }
+    header span { display: block; font-weight: 400; color: var(--secundario); font-size: 14px; }
+    h1 { font-size: 24px; font-weight: 600; margin: 24px 0 8px; line-height: 1.25; }
+    h1.valido { color: var(--valido); }
+    h1.invalido { color: var(--invalido); }
+    p { margin: 0 0 12px; }
+    dl { display: grid; grid-template-columns: max-content 1fr; gap: 10px 16px; margin: 20px 0; padding: 16px 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+    dt { color: var(--secundario); }
+    dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+    .nota { color: var(--secundario); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="logo.jpg" alt="">
+      <p id="organizacion">Tesorería del coro<span>Verificación de comprobantes de pago</span></p>
+    </header>
+    <section id="resultado" aria-live="polite">
+      <p>Verificando…</p>
+    </section>
+  </main>
+  <script type="module" src="verificar.js"></script>
+</body>
+</html>
